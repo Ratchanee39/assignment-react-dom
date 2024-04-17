@@ -1,0 +1,69 @@
+import { useRoutes} from "react-router-dom";
+import Home from "./component/Home";
+import About from "./component/About";
+import NoPage from "./component/NoPage";
+import LayoutHome from "./component/LayoutHome";
+import Contact from "./component/Contact";
+
+  //   <>
+  //     <Routes>
+  //       <Route index  element={<Home/>} />
+  //       <Route path="/about/:id" element={<div><h2>About5</h2> <About/></div>} />
+  //     </Routes>
+  //   </>
+
+
+
+//news
+//   const routers = useRoutes([
+//     {
+//       path: '*',
+//       element: <NotFound />,
+//     },
+//     {
+//       path: '/',
+//       element: <MainPage />,
+//     },
+//     {
+//       path: '/ogs-new',
+//       element: <LayoutPage />,
+//       children: [
+//         {
+//           index: true,
+//           element: <HomePage />,
+//         },
+//         {
+//           path: 'news/:id',
+//           element: <AllNew />,
+//         },
+//         {
+//           path: 'detail-news/:id',
+//           element: <DetailNew />,
+//         },
+//       ],
+//     },
+//   ]);
+//   return routers
+// }
+
+const [all, setAll] = useState([1, 2, 3, 4, 5]);
+useEffect(() => {
+  const deleteData = () => {
+    if (all.length > 0) {
+      // ลบข้อมูลตัวแรกใน array
+      const newData = [...all]; // สร้างคัดลอกข้อมูลเพื่อป้องกันการแก้ไขข้อมูลตรงๆ
+      newData.shift(); // ลบข้อมูลตัวแรกใน array ใหม่
+
+      // อัพเดทข้อมูลใหม่ใน state
+      setAll(newData);
+
+      // เรียกฟังก์ชัน deleteData อีกครั้งหลังจากผ่านไปเวลาที่กำหนด
+      setTimeout(deleteData, 50000); // เวลาใน milliseconds (ในที่นี้คือ 1 วินาที)
+    } else {
+      console.log("All data deleted");
+    }
+  };
+
+  // เริ่มการลบข้อมูลเมื่อคอมโพเนนต์โหลด
+  deleteData();
+}, [all]); // ให้ useEffect เรียกใช้งานเมื่อ all เปลี่ยนแปลง
