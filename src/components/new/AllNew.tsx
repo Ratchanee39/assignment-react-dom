@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { data_new } from "@new/HomePage";
 import { useParams,useNavigate } from "react-router-dom";
+
 type DataAllNew = {
   id: number;
   name: string;
@@ -19,8 +20,6 @@ const AllNew: FC = () => {
   const { id } = useParams();
   const [dataNew, setDataNew] = useState<DataAllNew[]>([]);
   const navigate = useNavigate();
-  // console.log("dataNew",dataNew)
-  // console.log("data_new",data_new)
 
   useEffect(() => {
     const news = data_new[0].type_new.filter((item) => item.id === Number(id));

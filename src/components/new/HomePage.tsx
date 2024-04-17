@@ -216,7 +216,6 @@ const HomePage: FC = () => {
       type_new: news.type_new.map((type) => ({
         ...type,
         news_type: type.news_type.sort((a, b) => {
-          // console.log(new Date(b.date).getTime())
           return new Date(b.date).getTime() - new Date(a.date).getTime();
         }),
       })),
