@@ -14,7 +14,6 @@ type DataNew = {
 const DetailNew: FC = () =>{
   const location = useLocation();
   const data =location?.state?.data;
-  console.log(data)
   const [searchParams] = useSearchParams();
   const name =searchParams.get('name')
 
