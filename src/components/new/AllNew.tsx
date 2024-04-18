@@ -68,6 +68,7 @@ const AllNew: FC = () => {
                         margin: "24px",
                         borderRadius: "10px",
                         textAlign: "start",
+                        cursor:"pointer"
                       }}
                       onClick={() => {
                         clickToDetail(item.id, data.id);

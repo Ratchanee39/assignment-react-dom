@@ -261,6 +261,7 @@ const HomePage: FC = () => {
                               padding: "40px 24px",
                               margin: "14px",
                               borderRadius: "10px",
+                              cursor:"pointer"
                             }}
                             onClick={() => {
                               clickToDetail(data_news.id, data.id);
