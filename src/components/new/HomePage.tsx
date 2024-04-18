@@ -206,7 +206,6 @@ export const data_new: News[] = [
 ];
 
 const HomePage: FC = () => {
- 
   const navigate = useNavigate();
   const [sortedNews, setSortedNews] = useState<News[]>([]);
 
@@ -224,20 +223,13 @@ const HomePage: FC = () => {
     setSortedNews(sortedData);
   }, []);
 
-  const cilckToDetail = (id: number, data_id: number) => {
-    const news = sortedNews[0].type_new.filter((item) => item.id === data_id);
-    const data_new_detail = news[0].news_type.filter(
-      (data_item) => data_item.id === id
-    );
-
-    navigate(`/ogs-new/detail-news/${id}?name=Pang`, {
-      state: { data: data_new_detail },
-    });
+  const clickToDetail = (id: number, data_id: number) => {
+    navigate(`/ogs-new/detail-news/${data_id}/${id}?name=Pang`);
   };
 
   return (
-    <div style={{ padding: "0px 80px" }}>
-      {data_new.map((item: News, index: number) => {
+    <div>
+      {sortedNews.map((item: News, index: number) => {
         return (
           <div key={index}>
             <h2 style={{ paddingTop: "20px" }}>{item.title}</h2>
@@ -271,7 +263,7 @@ const HomePage: FC = () => {
                               borderRadius: "10px",
                             }}
                             onClick={() => {
-                              cilckToDetail(data_news.id, data.id);
+                              clickToDetail(data_news.id, data.id);
                             }}
                           >
                             <div

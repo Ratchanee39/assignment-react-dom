@@ -8,7 +8,7 @@ type DataNav = {
 
 const LayoutPage: React.FC = () => {
   const location = useLocation();
-  const path_name = location.pathname
+  const path_name = location.pathname;
 
   const data_nav: DataNav[] = [
     {
@@ -63,10 +63,7 @@ const LayoutPage: React.FC = () => {
           </li>
           {data_nav.map((item: DataNav, index: number) => {
             return (
-              <li
-                className={path_name === item.path ? "path" : ""}
-                key={index}
-              >
+              <li className={path_name === item.path ? "path" : ""} key={index}>
                 <Link to={item.path}>{item.name}</Link>
               </li>
             );
